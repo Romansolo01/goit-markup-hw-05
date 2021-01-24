@@ -33,10 +33,12 @@
               <a class="menu-link-studio" href="./index.html">Студия</a>
             </li>
             <li class="menu-list-item">
-              <a class="menu-link" href="./portfolio.html">Портфолио</a>
+              <a class="menu-link-studio-portfolio" href="./portfolio.html"
+                >Портфолио</a
+              >
             </li>
             <li class="menu-list-item">
-              <a class="menu-link" href="#">Контакты</a>
+              <a class="menu-link-studio-contacts" href="#">Контакты</a>
             </li>
           </ul>
           <address class="address">
@@ -69,7 +71,7 @@
         <div class="container-top">
           <h1 class="top-title">Эффективные решения для вашего бизнеса</h1>
           <div class="order-button">
-            <a class="order" href="#">Заказать услугу</a>
+            <a class="order" href="#" data-open-modal>Заказать услугу</a>
           </div>
         </div>
       </section>
@@ -142,6 +144,9 @@
                 height="294"
                 alt="Верстка сайтов"
               />
+              <div class="orientation-box">
+                <p class="orientation-text">Десктопные приложения</p>
+              </div>
             </li>
             <li class="orientation-list-item">
               <img
@@ -150,6 +155,9 @@
                 height="294"
                 alt="Мобильные приложения"
               />
+              <div class="orientation-box">
+                <p class="orientation-text">Мобильные приложения</p>
+              </div>
             </li>
             <li class="orientation-list-item">
               <img
@@ -158,6 +166,9 @@
                 height="294"
                 alt="Дизайн"
               />
+              <div class="orientation-box">
+                <p class="orientation-text">Дизайнерские решения</p>
+              </div>
             </li>
           </ul>
         </div>
@@ -402,5 +413,36 @@
       </div>
     </footer>
     <!-- /Контакты -->
+    <!-- Модальное окно -->
+    <div class="backdrop is-hidden" data-backdrop>
+      <div class="modal">
+        <a class="button-modal" data-close-modal>
+          <svg>
+            <use href="./images/symbol.svg#close"></use>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <script>
+      const refs = {
+        openModalBtn: document.querySelector("[data-open-modal]"),
+        closeModalBtn: document.querySelector("[data-close-modal]"),
+        backdrop: document.querySelector("[data-backdrop]"),
+      };
+
+      refs.openModalBtn.addEventListener("click", toggleModal);
+      refs.closeModalBtn.addEventListener("click", toggleModal);
+
+      refs.backdrop.addEventListener("click", logBackdropClick);
+
+      function toggleModal() {
+        refs.backdrop.classList.toggle("is-hidden");
+      }
+
+      function logBackdropClick() {
+        console.log("Это клик в бекдроп");
+      }
+    </script>
+    <!-- /Модальное окно -->
   </body>
 </html>
